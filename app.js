@@ -20,11 +20,11 @@ db.connect(function(err){
  
 
 app.get("/",function(req,res){
-   db.query("SELECT * FROM `persons`",function(err){
+   db.query("DROP TABLE persons",function(err){
    	if(err){
-   		throw err;
+   		res.send("Problem in Database");
    	}
-   	console.log("Query done");
+   	console.log("The persons Table is droped");
    });
 }); 
 
