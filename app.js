@@ -20,13 +20,14 @@ db.connect(function(err){
  
 
 app.get("/",function(req,res){
-   db.query("DROP TABLE persons",function(err){
+   db.query("CREATE TABLE Persons (PersonID int,LastName varchar(255),FirstName varchar(255),Address varchar(255),City varchar(255))",function(err){
    	if(err){
-   		res.send("Problem in Database");
+   		throw err;
    	}
-   	console.log("The persons Table is droped");
+   	res.send("Table is created");
+   	console.log("The persons Table is created");
    });
-}); 
+});
 
 
 
